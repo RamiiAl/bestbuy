@@ -1,5 +1,5 @@
-import products
 from typing import List
+import products
 
 
 class Store:
@@ -8,6 +8,7 @@ class Store:
         self.products = list(product_list)
 
     def add_product(self, product):
+        """Fügt ein Produkt zum Store hinzu."""
         self.products.append(product)
 
     def remove_product(self, product):
@@ -26,7 +27,8 @@ class Store:
                 active_products.append(product)
         return active_products
 
-    def order(self, shopping_list) -> float:
+    def order(self, shopping_list) -> float:  # pylint: disable=no-self-use
+        """Kauft alle Produkte der Liste und gibt den Gesamtpreis zurück."""
         total_price = 0.0
         for product, quantity in shopping_list:
             total_price += product.buy(quantity)

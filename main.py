@@ -63,8 +63,9 @@ def make_order(shop):
         try:
             total_price = shop.order(shopping_list)
             print(f"********\nOrder made! Total payment: {total_price} dollars")
-        except Exception as error:
+        except ValueError as error:
             print(f"Error while making order: {error}")
 
 if __name__ == "__main__":
     start(best_buy)
+    """Zeigt das Menü und führt die Auswahl aus."""

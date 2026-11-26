@@ -19,6 +19,7 @@ class Product:
         return self.quantity
 
     def set_quantity(self, quantity):
+        """Setzt die Menge und deaktiviert das Produkt bei 0."""
         if quantity < 0:
             raise ValueError("Menge darf nicht negativ sein.")
         self.quantity = quantity
@@ -26,6 +27,7 @@ class Product:
             self.deactivate()
 
     def is_active(self):
+        """Gibt True zurück, wenn das Produkt aktiv ist."""
         return self.active
 
     def activate(self):
@@ -35,15 +37,17 @@ class Product:
         self.active = False
 
     def show(self):
+        """Gibt das Produkt auf der Konsole aus."""
         print(f"{self.name}, Price: {self.price}, Quantity: {self.quantity}")
 
     def buy(self, quantity):
+        """Kauft die Menge und gibt den Gesamtpreis zurück."""
         if quantity <= 0:
             raise ValueError("Kaufmenge muss größer als 0 sein.")
         if not self.active:
-            raise Exception("Produkt ist nicht aktiv.")
+            raise ValueError("Produkt ist nicht aktiv.")
         if quantity > self.quantity:
-            raise Exception("Nicht genug auf Lager.")
+            raise ValueError("Nicht genug auf Lager.")
 
         total_price = float(self.price * quantity)
         self.set_quantity(self.quantity - quantity)
@@ -57,6 +61,7 @@ def main():
     print(bose.buy(50))
     print(mac.buy(100))
     print(mac.is_active())
+    """Gibt True zurück, wenn das Produkt aktiv ist."""
 
     bose.show()
     mac.show()
