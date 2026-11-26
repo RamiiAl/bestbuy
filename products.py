@@ -1,6 +1,8 @@
 class Product:
+    """Ein Produkt im Geschäft mit Name, Preis und Menge."""
 
     def __init__(self, name, price, quantity):
+        """Erstellt ein Produkt und prüft die Eingaben."""
         # 1. Prüfen, ob meine Eingaben gültig sind
         if not name:
             raise ValueError("Name darf nicht leer sein.")
@@ -16,6 +18,7 @@ class Product:
         self.active = True
 
     def get_quantity(self):
+        """Gibt die Menge im Lager zurück."""
         return self.quantity
 
     def set_quantity(self, quantity):
@@ -31,9 +34,11 @@ class Product:
         return self.active
 
     def activate(self):
+        """Aktiviert das Produkt."""
         self.active = True
 
     def deactivate(self):
+        """Deaktiviert das Produkt."""
         self.active = False
 
     def show(self):
@@ -55,6 +60,7 @@ class Product:
 
 
 def main():
+    """Testet die Klasse Product."""
     bose = Product("Bose QuietComfort Earbuds", price=250, quantity=500)
     mac = Product("MacBook Air M2", price=1450, quantity=100)
 
@@ -68,6 +74,7 @@ def main():
 
     bose.set_quantity(1000)
     bose.show()
+
 
 if __name__ == "__main__":
     main()

@@ -3,8 +3,10 @@ import products
 
 
 class Store:
+    """Ein Geschäft, das eine Liste von Produkten verwaltet."""
 
     def __init__(self, product_list):
+        """Erstellt den Store mit einer Liste von Produkten."""
         self.products = list(product_list)
 
     def add_product(self, product):
@@ -12,15 +14,18 @@ class Store:
         self.products.append(product)
 
     def remove_product(self, product):
+        """Entfernt ein Produkt aus dem Store."""
         self.products.remove(product)
 
     def get_total_quantity(self) -> int:
+        """Gibt die Gesamtmenge aller Produkte im Store zurück."""
         total = 0
         for product in self.products:
             total += product.get_quantity()
         return total
 
     def get_all_products(self) -> List[products.Product]:
+        """Gibt alle aktiven Produkte im Store zurück."""
         active_products = []
         for product in self.products:
             if product.is_active():
@@ -36,6 +41,7 @@ class Store:
 
 
 def main():
+    """Testet die Klasse Store mit einigen Beispielprodukten."""
     product_list = [
         products.Product("MacBook Air M2", price=1450, quantity=100),
         products.Product("Bose QuietComfort Earbuds", price=250, quantity=500),

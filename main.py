@@ -9,7 +9,9 @@ product_list = [
 ]
 best_buy = store.Store(product_list)
 
+
 def start(shop):
+    """Zeigt das Menü und führt die Auswahl aus."""
     while True:
         print("\n   Store Menu")
         print("   ----------")
@@ -32,7 +34,9 @@ def start(shop):
         else:
             print("Invalid choice, please try again.")
 
+
 def list_products(shop):
+    """Gibt alle aktiven Produkte nummeriert aus."""
     active_products = shop.get_all_products()
     print("------")
     for number, product in enumerate(active_products, start=1):
@@ -40,7 +44,9 @@ def list_products(shop):
         product.show()
     print("------")
 
+
 def make_order(shop):
+    """Fragt Produkte und Mengen ab und gibt die Bestellung auf."""
     list_products(shop)
     active_products = shop.get_all_products()
     shopping_list = []
@@ -66,6 +72,6 @@ def make_order(shop):
         except ValueError as error:
             print(f"Error while making order: {error}")
 
+
 if __name__ == "__main__":
     start(best_buy)
-    """Zeigt das Menü und führt die Auswahl aus."""
