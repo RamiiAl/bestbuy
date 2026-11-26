@@ -67,7 +67,6 @@ def main():
     print(bose.buy(50))
     print(mac.buy(100))
     print(mac.is_active())
-    """Gibt True zurück, wenn das Produkt aktiv ist."""
 
     bose.show()
     mac.show()
